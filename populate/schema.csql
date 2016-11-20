@@ -1,0 +1,62 @@
+CREATE TABLE testing.samples_by_reception_time (
+	uuid uuid,
+    received_at timestamp,
+
+    reception_year int,
+    reception_month int,
+    reception_day int,
+    reception_hour int,
+
+    phenotype text,
+    created_at timestamp,
+    sanger_sample_id text,
+
+
+    PRIMARY KEY ((reception_year, reception_month, reception_day, reception_hour), phenotype, sanger_sample_id));
+
+CREATE TABLE testing.receptions_by_sample (
+	uuid uuid,
+    received_at timestamp,
+
+    reception_year int,
+    reception_month int,
+    reception_day int,
+    reception_hour int,
+
+    phenotype text,
+    created_at timestamp,
+    sanger_sample_id text,
+
+
+    PRIMARY KEY (sanger_sample_id, reception_year, reception_month, reception_day, reception_hour, phenotype, received_at));
+
+ CREATE TABLE testing.receptions_by_sample (
+	uuid uuid,
+    received_at timestamp,
+
+    reception_year int,
+    reception_month int,
+    reception_day int,
+    reception_hour int,
+
+    phenotype text,
+    created_at timestamp,
+    sanger_sample_id text,
+
+    PRIMARY KEY (received_at, reception_hour));
+ )
+
+
+ CREATE TABLE receptions_by_gender (
+   gender text,
+
+   received_at timestamp,
+
+   sample_uuid uuid,
+   phenotype text,
+   sanger_sample_id text,
+   created_at timestamp,
+   updated_at timestamp,
+
+   PRIMARY KEY(gender, received_at)
+ );
